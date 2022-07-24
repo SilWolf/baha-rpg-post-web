@@ -61,10 +61,7 @@ export type BahaPostRaw = {
   contentImages: string[]
 }
 
-export type BahaPost = Pick<
-  BahaPostRaw,
-  'id' | 'publisher' | 'content' | 'ctime' | 'to'
-> & {
+export type BahaPost = Pick<BahaPostRaw, 'id' | 'publisher' | 'content' | 'ctime' | 'to'> & {
   title: string
   urlPreview?: BahaPostRawUrlPreview
   bahaUrl: string

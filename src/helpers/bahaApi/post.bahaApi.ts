@@ -1,5 +1,5 @@
 import api from '@/services/api'
-import { BahaAPIResponse } from './types/BahaApi.type'
+import { BahaAPIResponse } from './types/bahaApi.type'
 import { BahaPost, BahaPostRaw } from './types/bahaPost.type'
 
 let cachedlastPostId: string | undefined
@@ -28,7 +28,7 @@ export const getPostsRawResponse = async (lastSn?: string) =>
         }
       }
     )
-    .then((res) => res.data.data)
+    .then((res) => res.data)
 
 export const getPostsWithLastSn = async (
   lastSn?: string
@@ -78,4 +78,4 @@ export const getPost = async (postId: string): Promise<BahaPost> =>
         messageId: postId
       }
     })
-    .then((res) => convertBahaPostRawToBahaPost(res.data.data))
+    .then((res) => convertBahaPostRawToBahaPost(res))

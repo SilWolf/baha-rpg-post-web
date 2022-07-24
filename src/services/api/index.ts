@@ -1,7 +1,7 @@
 import qs from 'qs'
 
 type APIConfig = {
-  errorHandler: (e: Error) => void
+  errorHandler: (e: Error) => any
 }
 
 type APIRequestOption = RequestInit & {
@@ -14,6 +14,7 @@ class API {
   baseUrl: string
   errorHandler: APIConfig['errorHandler'] = (e) => {
     console.error(e.message)
+    throw e
   }
 
   constructor(baseUrl: string, config?: APIConfig) {
