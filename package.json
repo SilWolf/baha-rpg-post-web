@@ -1,0 +1,19 @@
+{
+  "name": "baha-rpg-post-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilWolf/baha-rpg-post-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SilWolf/baha-rpg-post-web/issues"
+  },
+  "homepage": "https://github.com/SilWolf/baha-rpg-post-web#readme"
+}
