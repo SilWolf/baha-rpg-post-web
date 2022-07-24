@@ -6,8 +6,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'google'
+    'google',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,5 +18,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {}
+  rules: {
+    'require-jsdoc': 0
+  }
 }
