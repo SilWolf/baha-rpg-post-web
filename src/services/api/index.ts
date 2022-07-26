@@ -35,12 +35,14 @@ class API {
     return fetch(url, {
       method: 'GET',
       credentials: 'include',
+      mode: 'no-cors',
       ...option,
 
       headers: {
         'Content-Type': 'application/json',
-        ...option?.headers
-      }
+        Cookie: `BAHARUNE=${process.env.REACT_APP_BAHA_TOKEN};`,
+        ...option?.headers,
+      },
     })
       .then((res) => res.json() as Promise<T>)
       .catch(this.errorHandler)
@@ -54,13 +56,15 @@ class API {
     return fetch(url, {
       method: 'POST',
       credentials: 'include',
+      mode: 'no-cors',
       body: JSON.stringify(data),
       ...option,
 
       headers: {
         'Content-Type': 'application/json',
-        ...option?.headers
-      }
+        Cookie: `BAHARUNE=${process.env.REACT_APP_BAHA_TOKEN};`,
+        ...option?.headers,
+      },
     })
       .then((res) => res.json() as Promise<T>)
       .catch(this.errorHandler)

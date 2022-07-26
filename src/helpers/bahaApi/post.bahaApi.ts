@@ -1,4 +1,4 @@
-import api from '@/services/api'
+import api from '@/services/axiosApi'
 import { BahaAPIResponse } from './types/bahaApi.type'
 import { BahaPost, BahaPostRaw } from './types/bahaPost.type'
 
@@ -14,7 +14,7 @@ const convertBahaPostRawToBahaPost = (bahaPostRaw: BahaPostRaw): BahaPost => ({
   urlPreview: Array.isArray(bahaPostRaw.urlPreview) ? undefined : bahaPostRaw.urlPreview,
   bahaUrl: `https://guild.gamer.com.tw/post_detail.php?gsn=${bahaPostRaw.to.gsn}&sn=${bahaPostRaw.id}`,
   eternalUrl: `https://www.isaka.idv.tw/History/viewMsg.html?sn=${bahaPostRaw.id}`,
-  ctimeDate: new Date(bahaPostRaw.ctime)
+  ctimeDate: new Date(bahaPostRaw.ctime),
 })
 
 export const getPostsRawResponse = async (lastSn?: string) =>
@@ -24,8 +24,8 @@ export const getPostsRawResponse = async (lastSn?: string) =>
       {
         params: {
           gsn: 3014,
-          last: lastSn
-        }
+          last: lastSn,
+        },
       }
     )
     .then((res) => res.data)
@@ -75,7 +75,7 @@ export const getPost = async (postId: string): Promise<BahaPost> =>
     .get<BahaAPIResponse<BahaPostRaw>>('/guild/v1/post_detail.php', {
       params: {
         gsn: 3014,
-        messageId: postId
-      }
+        messageId: postId,
+      },
     })
-    .then((res) => convertBahaPostRawToBahaPost(res))
+    .then((res) => convertBahaPostRawToBahaPost(res.data))

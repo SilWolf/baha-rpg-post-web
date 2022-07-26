@@ -1,7 +1,9 @@
-import PostPage from '@/pages/post'
+import { useRoutes } from 'react-router-dom'
+import routes from './routes'
 
 function App() {
-  return <PostPage />
+  const routeComponents = useRoutes(routes)
+  return routeComponents
 }
 
 export default App
