@@ -62,7 +62,7 @@ const BahaCommentEditor = () => {
       const before = wordBefore && Editor.before(editor, wordBefore)
       const beforeRange = before && Editor.range(editor, before, start)
       const beforeText = beforeRange && Editor.string(editor, beforeRange)
-      const beforeMatch = beforeText && beforeText.match(/^@(\w+)$/)
+      const beforeMatch = beforeText && beforeText.match(/^@([^@\s]+)$/)
       const after = Editor.after(editor, start)
       const afterRange = Editor.range(editor, start, after)
       const afterText = Editor.string(editor, afterRange)
