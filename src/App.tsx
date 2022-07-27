@@ -1,9 +1,12 @@
-import { useRoutes } from 'react-router-dom'
-import routes from './routes'
+import React from 'react'
+import BahaCommentEditor from './components/BahaCommentEditor'
 
 function App() {
-  const routeComponents = useRoutes(routes)
-  return routeComponents
+  return (
+    <div className="container mx-auto pt-32">
+      <BahaCommentEditor />
+    </div>
+  )
 }
 
 export default App
